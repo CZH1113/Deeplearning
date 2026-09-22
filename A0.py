@@ -1,5 +1,8 @@
 import numpy as np
 import torch
+from sklearn.decomposition import PCA 
+import matplotlib.pyplot as plt
+
 
 train_in = np.loadtxt("train_in - Copy.csv", delimiter=",")
 train_out = np.loadtxt("train_out - Copy.csv", delimiter=",")
@@ -48,7 +51,29 @@ print("centers.shape: ", centers.shape)
 # d= distance 
 d_centers= torch.cdist(centers, centers)
 print("centers distances: ", d_centers.shape)
-print(d_centers[2,7])
+# test centers distances calculation function
+#print(d_centers[2,7])
+
+# look for the closest pair 
+pairs =[]
+
+for i in range(0,10):
+    for j in range(i+1,10):
+        distance=d_centers[i,j].item();
+        pairs.append((distance, i,j))
+pairs.sort()
+ 
+#print(pairs) 7,9
+
+
+
+
+
+
+
+
+
+
 
 
 
