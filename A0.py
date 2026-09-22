@@ -66,8 +66,27 @@ pairs.sort()
 #print(pairs) 7,9
 
 
+# -----question 2 ---------
 
+pca = PCA(n_components=2)
+train_pca = pca.fit_transform(train_in)
 
+print(train_in.shape)
+print(train_pca.shape) # after pca
+#print(train_pca[0])
+
+plt.figure()
+scatter=plt.scatter(
+    train_pca[:,0],
+    train_pca[:,1],
+    c=train_out,# color 
+    cmap="tab10",
+    s=10,
+    alpha=0.7
+)
+
+plt.title("PCA visualisation")
+plt.show()
 
 
 
